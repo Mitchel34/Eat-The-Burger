@@ -1,0 +1,27 @@
+<h1 class="text-center">Eat the Burger!</h1>
+<div class="text-center small"><img height="200" src="happyburg.jpg" alt="burgerPic"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <ul>
+                <h3>Eat These</h3>
+                {{#each burgers}}
+                {{#unless devoured}}
+                <li>{{burger_name}} <button class="devourBtn" data-id={{id}}>Devour</button></li>
+                {{/unless}}{{/each}}</ul>
+        </div>
+        <div class="col-sm-6">
+            <ul><h3>Already Eaten</h3>
+                {{#each burgers}}
+                {{#if devoured}}
+                <li>{{burger_name}} </li>
+                {{/if}}{{/each}}</ul>
+        </div>
+    </div>
+</div>
+
+
+
+<form class="text-center" action="/api/burgers" method="POST">
+    <input name="burger_name" type="text">
+    <button type="submit">Submit</button></form>
